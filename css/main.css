@@ -1,0 +1,772 @@
+/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 14px;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* My work starts here*/
+
+/* Header sytles - cover image and caption */
+header {
+    width: 100vw;
+    min-height: 360px;
+    background-color: #ededed;
+}
+
+.coverImage {
+    width: inherit;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: left;
+}
+
+.coverCaption {
+    color: black;
+    z-index: 1;
+    position: absolute;
+    top: 4%;
+    left: 9%;
+    font-family: 'Faster One', cursive;
+    font-size: 4vw;
+    line-height: 4vw;
+    text-transform: uppercase;
+}
+
+.coverCaptionSmaller {
+    font-size: .92em;
+}
+
+@media (max-width: 500px) {
+    .coverCaption {
+        font-size: 1.5rem;
+        line-height: 1.45rem;
+    }
+}
+
+/* Navigation bar styles */
+nav {
+    height: 100vh;
+    width: 120px;
+    position: fixed;
+    bottom: 0px;
+    right: 35px;
+    z-index: 2;
+}
+
+nav ul{
+    list-style-type: none;
+    margin-top: 30vh;
+    padding: 0;
+
+}
+
+.navListItem {
+    display: flex;
+    flex-direction: row-reverse;
+    float: right;
+    line-height: 4rem;
+}
+
+.navIcon {
+    height: 35px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.navIconCaption {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    visibility: hidden;
+    color: #9e9c9c;
+}
+
+nav a:hover + .navIconCaption {
+    visibility: visible;
+}
+
+/*Mobile bottom navigation styles*/
+@media (max-width: 1023px) {
+
+    nav {
+        width: 100%;
+        height: 75px;
+        position: fixed;
+        right: 0;
+        background: #fff;
+        border-top: 3px solid #aaa;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .navListItem {
+        display: flex;
+        flex-direction: column;
+        line-height: 1rem;
+    }
+
+    .navIcon {
+        height: 30px;
+    }
+
+    .navIconCaption {
+        visibility: visible;
+        font-size: .8rem;
+        margin: 3px auto;
+    }
+
+    nav a:hover + .navIconCaption,  nav a:focus + .navIconCaption {
+        color: #000;
+    }
+}
+
+/* Next pages styles */
+.fullWidthContainer {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    letter-spacing: .75px;
+    color: #191919;
+    width: 100vw;
+    padding: 35px 0 30px 0;
+}
+
+.centeredContainer {
+    max-width: 545px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h2 {
+    padding-bottom: 20px;
+}
+
+.firstBackgroundColor {
+    background-color: #fff;
+    color: #424242;
+}
+
+.secondBackgroundColor {
+    background-color: #f4f4f4;
+}
+
+.chefLargerText {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.25rem;
+}
+
+.imgServing {
+    height: 328px;
+    float: left;
+    padding: 4px 12px 10px 0;
+}
+
+@media (max-width: 500px) {
+    .imgServing {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.imgHand {
+    display: block;
+    width: 95%;
+    padding: 20px 0;
+}
+
+/* Gallery styles */
+.galleryContainer {
+    max-width: 680px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0 20px 0 10px;
+}
+
+.galleryContainer h2 {
+    flex-basis: 99%;
+}
+
+@media (max-width: 709px) {
+    .galleryContainer h2 {
+        flex-basis: 90%;
+    }
+}
+
+.galleryImageContainer {
+    padding: 5px;
+}
+
+.galleryImage img {
+    display: block;
+    width: 330px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.galleryImageDescription {
+    position: relative;
+    bottom: 85px;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    color: #191919;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 70px;
+    margin-bottom: -85px;
+    font-weight: bolder;
+    opacity: 0;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+.galleryImageContainer:hover img,
+.galleryImageContainer:focus img {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.galleryImageContainer:hover .galleryImageDescription,
+.galleryImageContainer:focus .galleryImageDescription {
+    opacity: 1;
+}
+
+.galleryImageContainer:hover:nth-child(odd),
+.galleryImageContainer:focus:nth-child(odd) {
+    cursor: pointer;
+    box-shadow: 3px 2px 3px #a8a8a8;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+.galleryImageContainer:hover:nth-child(even),
+.galleryImageContainer:focus:nth-child(even) {
+    cursor: pointer;
+    box-shadow: -3px 2px 3px #a8a8a8;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+@media (max-width: 1023px) {
+    .galleryImage img {
+        -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(0%);
+    }
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.85); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0.2)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#backward {
+    position: absolute;
+    top: 150px;
+    left: 3%;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#forward {
+    position: absolute;
+    top: 150px;
+    right: 3%;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#backward:hover,
+#backward:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#forward:hover,
+#forward:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Recipes styles */
+.recipesContainer {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.recipesContainer h2 {
+    margin: 20px 0 0 0;
+}
+
+.recipesContainer article {
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.recipesContainer article:first-child {
+    margin-top: -30px;
+}
+
+.recipesContainer article:last-child {
+    /*margin-bottom: 40px;*/
+    padding-bottom: 30px;
+}
+
+h3 {
+    margin: 30px 0 20px 0;
+}
+
+.recipesContainer img {
+    float: left;
+    width: 200px;
+    margin: 0 15px 10px 0;
+}
+
+@media (max-width: 500px) {
+    .recipesContainer img  {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.recipesContainer ul {
+    list-style-type: circle;
+    margin: 0 0 0 -20px;
+    line-height: 2rem;
+}
+
+.recipesContainer article  p {
+    max-width: 650px;
+    padding-right: 20px;
+    color: #424242;
+}
+
+#instructionsCrayfish, #instructionsMuffins {
+    color: #9e9c9c;
+}
+
+#ingredientsCrayfish, #ingredientsMuffins {
+    clear: both;
+    color: #9e9c9c;
+}
+
+#ingredientsCrayfish {
+    margin-top: 70px;
+}
+
+#ingredientsMuffins {
+    margin-top: 30px;
+}
+
+@media (max-width: 680px) {
+    #ingredientsCrayfish {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 630px) {
+    #ingredientsCrayfish {
+        margin-top: 30px;
+    }
+}
+
+/* Expanding recipe articles */
+.readMoreBg {
+    height: 250px;
+    background-image: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.9),  rgba(255,255,255,1));
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: -220px;
+    -webkit-transform: translate(0, -250px);
+    -ms-transform: translate(0, -250px);
+    transform: translate(0, -250px);
+}
+
+.readMoreBtn {
+    width: 150px;
+    height: 80px;
+    line-height: 7rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: white;
+    color: #444;
+    margin: 0 auto;
+    -webkit-transform: translate(0, 167px);
+    -ms-transform: translate(0, 167px);
+    transform: translate(0, 167px);
+    border: 2px solid #9e9c9c;
+    border-bottom-color: transparent;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    box-shadow: 2px 3px 15px  #aaa;
+    box-shadow: 0px 0px 90px 5px  #aaa;
+    z-index: 10;
+    opacity: .4;
+}
+
+.readMoreBtn div {
+    width: 122px;
+    height: 68px;
+    border: 2px solid #9e9c9c;
+    border-bottom-color: transparent;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    margin: 10px auto;
+    z-index: 11;
+}
+
+.readMoreBtn:hover, .readMoreBtn:focus  {
+    color: #777;
+    box-shadow: 14px 4px 15px  #777;
+    box-shadow: 0px 0px 10px  #777;
+    cursor: pointer;
+}
+
+.readMoreBtn:hover div, .readMoreBtn:focus div {
+    background: #ddd;
+    color: #555;
+}
+
+.eatMoreTxt {
+    display: none;
+}
+
+.readMoreBtn:hover .readMoreTxt {
+    display: none;
+}
+
+.readMoreBtn:hover .eatMoreTxt {
+    display: inherit;
+}
+
+.hideBtn {
+    width: 150px;
+    height: 80px;
+    line-height: 3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #fff;
+    color: #444;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    -webkit-transform: translate(0, 30px);
+    -ms-transform: translate(0, 30px);
+    transform: translate(0, 30px);
+    border: 2px solid #9e9c9c;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    box-shadow: -2px 3px 15px  #aaa;
+    box-shadow: 0px 0px 90px 5px  #aaa;
+    z-index: 10;
+    opacity: .4;
+    display: none;
+}
+
+.hideBtn div {
+    width: 122px;
+    height: 68px;
+    border: 2px solid #9e9c9c;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    margin: -2px auto;
+    z-index: 11;
+}
+
+.hideBtn:hover, .hideBtn:focus  {
+    color: #777;
+    box-shadow: -14px 4px 15px  #777;
+    box-shadow: 0px 0px 10px  #777;
+    cursor: pointer;
+}
+
+.hideBtn:hover div, .hideBtn:focus div {
+    background: #ddd;
+    color: #555;
+}
+
+
+/* Footer section sytles */
+footer {
+    background-color: #aaa;
+    width: 100vw;
+    height: 185px;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -5px;
+    padding: 0;
+}
+
+footer ul li img {
+    height: 45px;
+    padding: 10px;
+    opacity: .5;
+}
+
+footer ul li img:hover, footer ul li img:active {
+    cursor: pointer;
+    opacity: 1;
+}
+
+address p {
+    text-align: center;
+    font-size: .9rem;
+    font-style: normal;
+    margin-top: 15px;
+}
+
+address p a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ebebeb;
+}
+
+address p a:hover, address p a:active {
+    color: #fff;
+}
+
+@media (max-width: 1023px) {
+    footer {
+        height: 240px;
+    }
+}
+
+/* My work ends here
+*/
+
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *, *:before, *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a, a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after, a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+  tr, img {
+    page-break-inside: avoid;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
