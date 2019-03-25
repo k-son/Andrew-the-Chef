@@ -1,8 +1,11 @@
 # Andrew-the-Chef
 \
 Imaginary Chef's webpage.
+Done for exercise.
 \
 \
+\
+Demo
 \
 ![](chef_live.gif)
 \
