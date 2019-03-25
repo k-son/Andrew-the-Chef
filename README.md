@@ -12,7 +12,9 @@ Demo
 \
 \
 \
-HTML5, CSS3, Vanilla JavaScript. Fully responsive.
+HTML5, CSS3, Vanilla JavaScript.
+\
+Fully responsive.
 \
 \
 \
