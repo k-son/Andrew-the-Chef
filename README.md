@@ -4,7 +4,7 @@ Imaginary Chef's webpage.
 \
 \
 \
-![](chef-live.mp4)
+![](chef_live.gif)
 \
 \
 \
