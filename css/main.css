@@ -14,7 +14,8 @@ html {
   color: #222;
   font-size: 14px;
   line-height: 1.4;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
@@ -27,11 +28,6 @@ html {
  *
  * Customize the background color to match your design.
  */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
 
 ::selection {
   background: #b3d4fc;
@@ -95,19 +91,27 @@ textarea {
    ========================================================================== */
 
 /* My work starts here*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* Header sytles - cover image and caption */
 header {
-    width: 100vw;
+    width: 100%;
     min-height: 360px;
+
     background-color: #ededed;
 }
 
 .coverImage {
     width: inherit;
     min-height: inherit;
-    object-fit: cover;
-    object-position: left;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: left;
+       object-position: left;
 }
 
 .coverCaption {
@@ -151,8 +155,13 @@ nav ul{
 }
 
 .navListItem {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
     float: right;
     line-height: 4rem;
 }
@@ -168,6 +177,7 @@ nav ul{
     text-transform: uppercase;
     opacity: 0;
     color: #9e9c9c;
+    -webkit-transition: all .2s;
     transition: all .2s;
 }
 
@@ -175,7 +185,7 @@ nav a:hover + .navIconCaption {
     opacity: 1;
 }
 
-/*Mobile bottom navigation styles*/
+/* Mobile bottom navigation styles */
 @media (max-width: 1023px) {
 
     nav {
@@ -184,35 +194,104 @@ nav a:hover + .navIconCaption {
         position: fixed;
         right: 0;
         background: #fff;
-        box-shadow: 0 -1px 15px #aaa;
-
+        -webkit-box-shadow: 0 -1px 15px #aaa;
+                box-shadow: 0 -1px 15px #aaa;
+        overflow: hidden;
     }
 
     nav ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         margin-top: 10px;
     }
 
     .navListItem {
-        display: flex;
-        flex-direction: column;
-        line-height: 1rem;
+        position: relative;
     }
 
     .navIcon {
         height: 30px;
     }
 
-    .navIconCaption {
-        visibility: visible;
-        font-size: .8rem;
-        margin: 3px auto;
+    .navListItem::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        background-color: #ddd;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0;
     }
 
-    nav a:hover + .navIconCaption,  nav a:focus + .navIconCaption {
-        color: #000;
+    .navListItem:active::after {
+        -webkit-animation: bg-burst .4s ease-in;
+                animation: bg-burst .4s ease-in;
+    }
+
+    .navListItem:active a {
+        outline: none;
+    }
+
+    .navIconCaption {
+        display: none;
+    }
+
+    @-webkit-keyframes bg-burst {
+        0% {
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+        }
+        50% {
+            opacity: 1;
+            top: 1%;
+            left: -11%;
+            width: 55px;
+            height: 55px;
+        }
+        100% {
+            width: 155px;
+            height: 155px;
+            opacity: 0;
+            top: -100%;
+            left: -100%;
+        }
+    }
+
+    @keyframes bg-burst {
+        0% {
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+        }
+        50% {
+            opacity: 1;
+            top: 1%;
+            left: -11%;
+            width: 55px;
+            height: 55px;
+        }
+        100% {
+            width: 155px;
+            height: 155px;
+            opacity: 0;
+            top: -100%;
+            left: -100%;
+        }
     }
 }
 
@@ -223,7 +302,7 @@ nav a:hover + .navIconCaption {
     line-height: 1.5rem;
     letter-spacing: .75px;
     color: #191919;
-    width: 100vw;
+    width: 100%;
     padding: 35px 0 30px 0;
 }
 
@@ -275,21 +354,31 @@ h2 {
 /* Gallery styles */
 .galleryContainer {
     max-width: 680px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 20px auto;
     padding: 0 20px 0 10px;
 }
 
 .galleryContainer h2 {
-    flex-basis: 99%;
+    -ms-flex-preferred-size: 99%;
+        flex-basis: 99%;
 }
 
 @media (max-width: 709px) {
     .galleryContainer h2 {
-        flex-basis: 90%;
+        -ms-flex-preferred-size: 90%;
+            flex-basis: 90%;
     }
 }
 
@@ -335,7 +424,8 @@ h2 {
 .galleryImageContainer:hover:nth-child(odd),
 .galleryImageContainer:focus:nth-child(odd) {
     cursor: pointer;
-    box-shadow: 3px 2px 3px #a8a8a8;
+    -webkit-box-shadow: 3px 2px 3px #a8a8a8;
+            box-shadow: 3px 2px 3px #a8a8a8;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -343,7 +433,8 @@ h2 {
 .galleryImageContainer:hover:nth-child(even),
 .galleryImageContainer:focus:nth-child(even) {
     cursor: pointer;
-    box-shadow: -3px 2px 3px #a8a8a8;
+    -webkit-box-shadow: -3px 2px 3px #a8a8a8;
+            box-shadow: -3px 2px 3px #a8a8a8;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -400,13 +491,13 @@ h2 {
 }
 
 @-webkit-keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {-webkit-transform:scale(0);transform:scale(0)}
+    to {-webkit-transform:scale(1);transform:scale(1)}
 }
 
 @keyframes zoom {
-    from {transform:scale(0.2)}
-    to {transform:scale(1)}
+    from {-webkit-transform:scale(0.2);transform:scale(0.2)}
+    to {-webkit-transform:scale(1);transform:scale(1)}
 }
 
 /* The Close Button */
@@ -417,6 +508,7 @@ h2 {
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
+    -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -427,6 +519,7 @@ h2 {
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
+    -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -437,6 +530,7 @@ h2 {
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
+    -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -549,12 +643,12 @@ h3 {
 /* Expanding recipe articles */
 .readMoreBg {
     height: 250px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(rgba(255,255,255,0.5)), color-stop(rgba(255,255,255,0.9)),  to(rgba(255,255,255,1)));
     background-image: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.9),  rgba(255,255,255,1));
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     margin-bottom: -220px;
     -webkit-transform: translate(0, -250px);
-    -ms-transform: translate(0, -250px);
     transform: translate(0, -250px);
 }
 
@@ -569,14 +663,15 @@ h3 {
     color: #444;
     margin: 0 auto;
     -webkit-transform: translate(0, 167px);
-    -ms-transform: translate(0, 167px);
     transform: translate(0, 167px);
     border: 2px solid #9e9c9c;
     border-bottom-color: transparent;
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
-    box-shadow: 2px 3px 15px  #aaa;
-    box-shadow: 0px 0px 90px 5px  #aaa;
+    -webkit-box-shadow: 2px 3px 15px  #aaa;
+            box-shadow: 2px 3px 15px  #aaa;
+    -webkit-box-shadow: 0px 0px 90px 5px  #aaa;
+            box-shadow: 0px 0px 90px 5px  #aaa;
     z-index: 10;
     opacity: .4;
 }
@@ -594,8 +689,10 @@ h3 {
 
 .readMoreBtn:hover, .readMoreBtn:focus  {
     color: #777;
-    box-shadow: 14px 4px 15px  #777;
-    box-shadow: 0px 0px 10px  #777;
+    -webkit-box-shadow: 14px 4px 15px  #777;
+            box-shadow: 14px 4px 15px  #777;
+    -webkit-box-shadow: 0px 0px 10px  #777;
+            box-shadow: 0px 0px 10px  #777;
     cursor: pointer;
 }
 
@@ -628,13 +725,14 @@ h3 {
     margin: 0 auto;
     margin-bottom: 80px;
     -webkit-transform: translate(0, 30px);
-    -ms-transform: translate(0, 30px);
     transform: translate(0, 30px);
     border: 2px solid #9e9c9c;
     border-bottom-left-radius: 90px;
     border-bottom-right-radius: 90px;
-    box-shadow: -2px 3px 15px  #aaa;
-    box-shadow: 0px 0px 90px 5px  #aaa;
+    -webkit-box-shadow: -2px 3px 15px  #aaa;
+            box-shadow: -2px 3px 15px  #aaa;
+    -webkit-box-shadow: 0px 0px 90px 5px  #aaa;
+            box-shadow: 0px 0px 90px 5px  #aaa;
     z-index: 10;
     opacity: .4;
     display: none;
@@ -652,8 +750,10 @@ h3 {
 
 .hideBtn:hover, .hideBtn:focus  {
     color: #777;
-    box-shadow: -14px 4px 15px  #777;
-    box-shadow: 0px 0px 10px  #777;
+    -webkit-box-shadow: -14px 4px 15px  #777;
+            box-shadow: -14px 4px 15px  #777;
+    -webkit-box-shadow: 0px 0px 10px  #777;
+            box-shadow: 0px 0px 10px  #777;
     cursor: pointer;
 }
 
@@ -666,15 +766,22 @@ h3 {
 /* Footer section sytles */
 footer {
     background-color: #aaa;
-    width: 100vw;
+    width: 100%;
     height: 185px;
 }
 
 footer ul {
     list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: -5px;
     padding: 0;
 }
@@ -683,6 +790,7 @@ footer ul li img {
     height: 45px;
     padding: 10px;
     opacity: .5;
+    -webkit-transition: all .2s;
     transition: all .2s;
 }
 
@@ -702,6 +810,7 @@ address p a {
     text-decoration: none;
     text-transform: uppercase;
     color: #ebebeb;
+    -webkit-transition: all .2s;
     transition: all .2s;
 }
 
